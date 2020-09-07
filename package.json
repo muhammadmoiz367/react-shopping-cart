@@ -1,0 +1,24 @@
+{
+  "name": "react-shopping-cart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon --watch back-end --exec babel-node back-end/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muhammadmoiz367/react-shopping-cart.git"
+  },
+  "author": "moeez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muhammadmoiz367/react-shopping-cart/issues"
+  },
+  "homepage": "https://github.com/muhammadmoiz367/react-shopping-cart#readme"
+}
