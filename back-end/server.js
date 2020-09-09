@@ -1,21 +1,25 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
 import data from './data';
-import config from './config'
+import userRoutes from './routes/users'
 
 dotenv.config();
 
-const mongodbUrl=config.MONGODB_URL;
 mongoose.connect(
-    mongodbUrl,
+    `mongodb+srv://muhammadmoiz367:${process.env.MONGODB_PW}@testcluster.ki7wv.mongodb.net/shopping-cart?retryWrites=true&w=majority`,
     {
-        useNewUrlParser: true
-    }
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    },
+    ()=> console.log('MongoDb connected !!')
 )
-.catch(error=> console.log(error.reason));
 
 const app= express();
+
+app.use(bodyParser.json());
+app.use('/api/users', userRoutes)
 
 app.get("/api/products", (req, res)=>{
     

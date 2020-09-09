@@ -4,8 +4,9 @@ import Reducer from './redux/reducers/index'
 import middleware from './redux/middleware/index'
 
 const cartItems=Cookie.getJSON("cartItems") || []
+const userInfo=Cookie.getJSON("userInfo") || null
 
-const initialState={ Cart: { cartItems }};
+const initialState={ Cart: { cartItems }, User: { userInfo }};
 
 const composeEnhancer=window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const store = createStore(Reducer, initialState, composeEnhancer(middleware));

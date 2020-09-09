@@ -73,7 +73,7 @@ function ProductDetails(props) {
                                         )}
                                     </li>
                                     <li>
-                                        {product[0].stockCount>0 && <button onClick={handleAddToCart} className="cart-btn">Add to cart</button> }
+                                        {product[0].stockCount>0 && <button onClick={handleAddToCart} className="button primary">Add to cart</button> }
                                     </li>
                                 </ul>
                             </div>

@@ -1,7 +1,10 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {useSelector} from 'react-redux'
 
 function Navbar() {
+    const User = useSelector(state => state.User);
+    const {userInfo}=User
     const openMenu=()=>{
         console.log('open menu')
         document.querySelector('.sidebar').classList.add('open')
@@ -21,7 +24,11 @@ function Navbar() {
             </div>
             <div className="header-links">
                 <a href="#">Cart</a>
-                <a href="#">Sign In</a>
+                {
+                    userInfo 
+                    ? <Link to="/profile">{userInfo.name}</Link>
+                    : <Link to="/signin">Sign In</Link>
+                }
             </div>
             </header>
             <aside className="sidebar">
