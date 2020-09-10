@@ -40,7 +40,7 @@ function Cart(props) {
                         cartItems.length === 0 
                         ? <div> Cart is empty </div>
                         : cartItems.map(item =>
-                            <li>
+                            <li key={item.productId}>
                                 <div className="cart-image">
                                     <img src={item.image} alt="product" />
                                 </div>

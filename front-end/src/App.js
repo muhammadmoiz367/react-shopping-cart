@@ -6,12 +6,14 @@ import ProductPage from './Pages/productPage';
 import CartPage from './Pages/cartPage';
 import SignIn from './Pages/signIn';
 import SignUp from './Pages/signUp';
+import ManageProductPage from './Pages/manageProductPage';
 
 function App() {
   return (
     <Fragment>
       <Route exact path="/" component={HomePage} />
-      <Route path="/product/:id" component={ProductPage} />    
+      <Route path="/product/:id" component={ProductPage} /> 
+      <Route path="/products" component={ManageProductPage} /> 
       <Route path="/cart/:id?" component={CartPage} />
       <Route path="/signIn" component={SignIn} />
       <Route path="/signUp" component={SignUp} />
