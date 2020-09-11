@@ -11,7 +11,8 @@ function SignUp(props) {
     const [rePassword, setRePassword] = useState('');
     const User = useSelector(state => state.User)
     const dispatch = useDispatch()
-    const {signUpError, signUpLoading, signUpUserInfo}=User
+    const {signUpError, signUpLoading, signUpUserInfo}=User;
+    const redirect=props.location.search ? props.location.search.split("=")[1] : "/"
     
     const handleSubmitForm=(e)=>{
         e.preventDefault();
@@ -63,7 +64,7 @@ function SignUp(props) {
                     </li>
                     <li>
                         Already have an account
-                        <Link to="/signin" className="button secondary text-center" >Sign In instead</Link>
+                        <Link to={redirect==='/' ? 'signin' : `signin?redirect=${redirect}`} className="button secondary text-center" >Sign In instead</Link>
                     </li>
                 </ul>
             </form>

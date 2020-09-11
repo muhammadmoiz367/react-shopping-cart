@@ -8,7 +8,8 @@ function SignIn(props) {
     const [password, setPassword] = useState('');
     const User = useSelector(state => state.User)
     const dispatch = useDispatch()
-    const {signInError, signInLoading, signInUserInfo}=User
+    const {signInError, signInLoading, signInUserInfo}=User;
+    const redirect=props.location.search ? props.location.search.split("=")[1] : "/"
     
     const handleSubmitForm=(e)=>{
         e.preventDefault();
@@ -17,7 +18,7 @@ function SignIn(props) {
 
     useEffect(() => {
         if(signInUserInfo){
-            props.history.push('/')
+            props.history.push(redirect)
         }
     }, [signInUserInfo])
     return (
@@ -50,7 +51,7 @@ function SignIn(props) {
                         New to amazona?
                     </li>
                     <li>
-                        <Link to="/signup" className="button secondary text-center" >Create your amazona account</Link>
+                        <Link to={redirect==='/' ? 'signup' : `signup?redirect=${redirect}`} className="button secondary text-center" >Create your amazona account</Link>
                     </li>
                 </ul>
             </form>

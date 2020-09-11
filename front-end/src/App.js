@@ -7,6 +7,9 @@ import CartPage from './Pages/cartPage';
 import SignIn from './Pages/signIn';
 import SignUp from './Pages/signUp';
 import ManageProductPage from './Pages/manageProductPage';
+import ShippingPage from './Pages/shippingPage'
+import PaymentPage from './Pages/paymentPage';
+import PlaceOrderPage from './Pages/placeOrderPage';
 
 function App() {
   return (
@@ -15,6 +18,9 @@ function App() {
       <Route path="/product/:id" component={ProductPage} /> 
       <Route path="/products" component={ManageProductPage} /> 
       <Route path="/cart/:id?" component={CartPage} />
+      <Route path="/shipping" component={ShippingPage} />
+      <Route path="/payment" component={PaymentPage} />
+      <Route path="/placeorder" component={PlaceOrderPage} />
       <Route path="/signIn" component={SignIn} />
       <Route path="/signUp" component={SignUp} />
     </Fragment>

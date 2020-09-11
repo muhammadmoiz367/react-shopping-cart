@@ -1,6 +1,6 @@
-import { CART_ADD_ITEM, CART_REMOVE_ITEM } from  "../constants/cartConstants";
+import { CART_ADD_ITEM, CART_REMOVE_ITEM, CART_ADD_SHIPPING, CART_ADD_PAYMENT } from  "../constants/cartConstants";
 
-const Cart=(state={ cartItems: [] }, action)=>{
+const Cart=(state={ cartItems: [], shipping: {}, payment: {} }, action)=>{
  switch(action.type){
      case CART_ADD_ITEM:
         const item=action.data;
@@ -17,6 +17,16 @@ const Cart=(state={ cartItems: [] }, action)=>{
         return{
             cartItems: state.cartItems.filter(x=> x.productId !== action.id)
         }
+    case CART_ADD_SHIPPING: 
+    return{
+        ...state,
+        shipping: action.data
+    }
+    case CART_ADD_PAYMENT: 
+    return{
+        ...state,
+        payment: action.data
+    }
     default: 
         return state
   }   

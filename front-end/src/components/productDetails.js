@@ -28,26 +28,26 @@ function ProductDetails(props) {
                 ? (<div>Loading product...</div>)
                 : error
                     ? (<div>{error}</div>)
-                    : Object.keys(ProductDetails.product).length !== 0 && (
+                    :  (
                         <div className="product-details"> 
                             <div className="details-image">
-                                <img src={product[0].image} alt="product-details-image" />
+                                <img src={product.image} alt="product-details-image" />
                             </div>
                             <div className="details-info">
                                 <ul>
                                     <li>
-                                        <h4>{product[0].name}</h4>
+                                        <h4>{product.name}</h4>
                                     </li>
                                     <li>
-                                        {product[0].rating} Stars ({product[0].reviews} Reviews)
+                                        {product.rating} Stars ({product.reviews} Reviews)
                                     </li>
                                     <li>
-                                        Price: $<b>{product[0].price}</b>
+                                        Price: $<b>{product.price}</b>
                                     </li>
                                     <li>
                                         Description:
                                         <div>
-                                            {product[0].description}
+                                            {product.description}
                                         </div>
                                     </li>
                                 </ul>
@@ -55,17 +55,17 @@ function ProductDetails(props) {
                             <div className="details-action">
                                 <ul>
                                     <li>
-                                        Price: {product[0].price}
+                                        Price: {product.price}
                                     </li>
                                     <li>
-                                        Status: {product[0].stockCount>0 ? "In stock" : "Out of stock"}
+                                        Status: {product.stockCount>0 ? "In stock" : "Out of stock"}
                                     </li>
                                     <li>
-                                        {product[0].stockCount>0 && (
+                                        {product.stockCount>0 && (
                                             <>
                                             <p>Quantity:</p>
                                             <select value={qty} onChange={(e)=> setQty(e.target.value) }>
-                                                {[...Array(product[0].stockCount).keys()].map(x=>
+                                                {[...Array(product.stockCount).keys()].map(x=>
                                                     <option value={x+1} >{x+1}</option>   
                                                 )}
                                             </select>
@@ -73,7 +73,7 @@ function ProductDetails(props) {
                                         )}
                                     </li>
                                     <li>
-                                        {product[0].stockCount>0 && <button onClick={handleAddToCart} className="button primary">Add to cart</button> }
+                                        {product.stockCount>0 && <button onClick={handleAddToCart} className="button primary">Add to cart</button> }
                                     </li>
                                 </ul>
                             </div>
